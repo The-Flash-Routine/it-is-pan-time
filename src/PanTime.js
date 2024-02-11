@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import youAre from './assets/you-are.jpg';
+import PanVerdict from './PanVerdict';
 import Status from './Status';
 
 let day = "PanDay"
@@ -11,7 +11,19 @@ function PanTime(){
     const [valDay, setValDay] = useState(0);
     const [valEve, setValEve] = useState(0);
     const [valNight, setValNight] = useState(0);
-    const [valVerdict, setValVerdict] = useState(day);
+    const [valVerdict, setValVerdict] = useState();
+
+    /*
+    Nice Learnings
+    1.  Use Effect is added only the first time component is mounted
+    2.  rerender != mounting again
+    3.  So the useEffect won't mount after every rerender
+    4.  As useEffect only mounts once.. thus it only sees the initial value of state variables..
+    5.  Think of every render of react component as a different/copy component
+        Thus each copy/render will have it's own values for variables...
+        When it rerenders... the old render has old values of variables still and the new will have new
+    6. if state variables change... teh component will rerender
+    */
 
     /* 
         Duration:
@@ -22,7 +34,6 @@ function PanTime(){
 
     useEffect(()=>{
         const intervalId = setInterval(() => {
-
             let currentTime = new Date();
             let totalMinutes = 60*currentTime.getHours() + currentTime.getMinutes()
         
@@ -47,10 +58,13 @@ function PanTime(){
                  and so on...
                  As state is changeing so everytime useeffect triggers then
             */
-            setValDay(() => getDayPercentage(totalMinutes));
-            setValEve(() => getEvePercentage(totalMinutes));
-            setValNight(() => getNightPercentage(totalMinutes));
-            setValVerdict(() => getPrimaryPan(valDay,valEve,valNight));
+            let dayPerCent = getDayPercentage(totalMinutes);
+            let evePercent = getEvePercentage(totalMinutes);
+            let nightPercent = getNightPercentage(totalMinutes);
+            setValDay(() => dayPerCent);
+            setValEve(() => evePercent);
+            setValNight(() => nightPercent);
+            setValVerdict(() => getVerdict(dayPerCent,evePercent, nightPercent))
         }, 1000);
 
         return () => clearInterval(intervalId); 
@@ -63,28 +77,21 @@ function PanTime(){
     return(
         <div className="PanTime">
             <div className="PanTimeTitle">
-                It's Pan Time
+                <p style={{fontSize: "50px"}}>It's Pan Time</p> <p>(formly Polymorphic Pan)</p>
             </div>
             <div className="PanTimeData">
                 <Status text={day} value={valDay}/>
                 <Status text={eve} value={valEve}/>
                 <Status text={night} value={valNight}/>
             </div>
-            <div className="PanTimeVerdict">
-                <div className="PanTimeVerdictImage"><img src={youAre}/></div>
-                <div className="PanTimeVerdictMessage">
-                    You are <br/>{valVerdict}
-                </div>
-            </div>
-            
+            <PanVerdict verdict={valVerdict}/>
         </div>
     );
 }
 
-const getPrimaryPan = (valDay, valEve, valNight) => {
-
+const getVerdict = (valDay,valEve,valNight) =>{
     if( (valDay===valEve && valDay !==0) || (valEve===valNight && valEve!==0) || (valDay===valNight && valNight!==0)){
-        return narsingh
+        return narsingh;
     }else if( valDay > valEve && valDay > valNight){
         return day;
     }else if( valEve > valDay && valEve > valNight){

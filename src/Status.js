@@ -3,7 +3,6 @@ import LinearProgress from '@mui/material/LinearProgress';
 import Typography from '@mui/material/Typography';
 
 function LinearProgressWithLabel(props) {
-
     return (
         <div className='Indicator'>
             <div className='IndicatorProgress'><LinearProgress sx={{height: '20px'}} variant="determinate" {...props} /></div>
@@ -16,7 +15,7 @@ function Status({text,value}){
     
     return(
         <div className='PanTimeStatus'>
-            <div className='PanTimeStatusTitle'>{text}</div>
+            <div style={{fontWeight: 1000}} className='PanTimeStatusTitle'>{text}</div>
             <div className='PanTimeStatusValue'><LinearProgressWithLabel value={value} /></div>
         </div>
     );

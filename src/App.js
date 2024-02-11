@@ -13,7 +13,6 @@ function App() {
       {
         dialogOpen === true ? <PanDialog dialogOpen={dialogOpen} setDialogOpen={setDialogOpen} /> : <PanTime/>
       }
-       
     </div>
   );
 }

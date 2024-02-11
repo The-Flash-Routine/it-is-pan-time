@@ -18,7 +18,7 @@ function PanDialog({dialogOpen, setDialogOpen}){
                     <DialogContentText>
                         I here by accept that all the surnames starting with "Pan" are the best surnames ever.
                         <br/>
-                        Specially Panday, PanEve and PanNight.
+                        Specially <b>Panday</b>, <b>PanEve</b> and <b>PanNight</b>.
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
