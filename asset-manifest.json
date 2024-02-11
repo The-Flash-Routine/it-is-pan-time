@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/it-is-pan-time/static/css/main.3ca4b596.css",
-    "main.js": "/it-is-pan-time/static/js/main.23f39202.js",
+    "main.css": "/it-is-pan-time/static/css/main.67d300c7.css",
+    "main.js": "/it-is-pan-time/static/js/main.92a8def8.js",
     "static/media/you-are.jpg": "/it-is-pan-time/static/media/you-are.00a9b489200e5ad43f89.jpg",
     "index.html": "/it-is-pan-time/index.html",
-    "main.3ca4b596.css.map": "/it-is-pan-time/static/css/main.3ca4b596.css.map",
-    "main.23f39202.js.map": "/it-is-pan-time/static/js/main.23f39202.js.map"
+    "main.67d300c7.css.map": "/it-is-pan-time/static/css/main.67d300c7.css.map",
+    "main.92a8def8.js.map": "/it-is-pan-time/static/js/main.92a8def8.js.map"
   },
   "entrypoints": [
-    "static/css/main.3ca4b596.css",
-    "static/js/main.23f39202.js"
+    "static/css/main.67d300c7.css",
+    "static/js/main.92a8def8.js"
   ]
 }
